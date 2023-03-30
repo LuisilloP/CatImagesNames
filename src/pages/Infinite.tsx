@@ -14,9 +14,10 @@ const Infinite = () => {
                 {urlCat ? urlCat.map((url, i) => (
                     <div key={i} className="" >
                         <img src={url + ""} className="object-cover w-full  h-[25rem] md:min-w-[25rem]" loading="lazy" />
-                        {urlCat.length - 1 === i ? <div ref={ref}>{ }</div> : ""}
+
                     </div>)) : <p></p>}
             </div>
+            <div ref={ref}>{ }</div>
         </div>
     )
 }
