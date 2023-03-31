@@ -1,5 +1,5 @@
 import React from "react"
-import Footer from "./layouts/footer"
+import Footer from "./layouts/Footer"
 import Header from "./layouts/Header"
 import RoutesP from "./RoutesP"
 const App = () => {

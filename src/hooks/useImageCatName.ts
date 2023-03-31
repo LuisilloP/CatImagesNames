@@ -7,6 +7,7 @@ const useImageCatName = (reset: boolean) => {
     const [urlCat, setUrlCat] = useState<string[]>([])
     const { names, setNNames } = useRandomName();
     const [myName, setMyName] = useState<string>()
+    const [btn, setBtn] = useState<boolean>(false)
     useEffect(() => {
 
         reset ? setUrlCat([]) : ""
@@ -24,11 +25,10 @@ const useImageCatName = (reset: boolean) => {
                 .then((data) => {
                     setUrlCat([urlImgCat + data.url])
 
-
-                }).then(setMyName(""))
+                }).then()
         }
-    }, [names, myName])
-    return { urlCat, setNNames, setMyName }
+    }, [names, myName, btn])
+    return { urlCat, setNNames, setMyName, btn, setBtn }
 }
 
 export default useImageCatName

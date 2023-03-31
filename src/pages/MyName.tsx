@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import useImageCatName from '../hooks/useImageCatName'
+import cat from "../../public/cat.svg"
 const MyName = () => {
-    const { urlCat, setMyName } = useImageCatName(true)
-    const [btn, setBtn] = useState<boolean>(false)
+    const { urlCat, setMyName, btn, setBtn } = useImageCatName(true)
+
     const inputName = document.querySelector('[name="name"]') as HTMLInputElement
     useEffect(() => {
         //ssetMyName()
         if (inputName?.value) {
             setMyName(inputName.value)
-            console.log("cambio nombre " + inputName.value)
         }
     }, [btn])
 
 
     return (
         <div className=''>
-            <h1>Gato prr mi nombre</h1>
-            <div>
-                <input type={"text"} name="name"></input>
-                <input type={"submit"} onClick={() => {
-                    if (inputName) {
-                        setBtn(!btn)
-                    }
-                }} ></input>
+
+            <div className='flex justify-center gap-4 pt-8 pb-4 px-[10%] flex-col '>
+                <h1 className='text-center text-2xl'>Gato prr mi nombre !!</h1>
+                <input type={"text"} name="name" className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'></input>
+                <div >
+
+                    <button type="submit" onClick={() => {
+                        if (inputName) {
+                            setBtn(!btn)
+                        }
+                    }} className="text-white w-[13rem] h-[3rem] bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex gap-2 items-center ">  <img src={cat} />Buscar a mi gato!!!</button>
+                </div>
                 {urlCat ? urlCat.map((url, i) => <div key={i}> <img src={url + ""} loading="lazy" /></div>) : <p></p>}
             </div>
         </div >

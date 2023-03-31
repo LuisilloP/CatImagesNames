@@ -5,11 +5,15 @@ const Infinite = () => {
     const { urlCat, setNNames } = useImageCatName(false)
     const { ref, inView } = useInView({})
     useEffect(() => {
-        const dataNamesReload = inView ? 10 : 9
-        setNNames(dataNamesReload)
+        setTimeout(() => {
+            const dataNamesReload = inView ? 10 : 9
+            setNNames(dataNamesReload)
+        }, 1000)
+
     }, [inView])
     return (
-        <div>
+        <div className='py-5'>
+            <h1 className='pb-5 text-center text-2xl'>Gatos infinitos!!!</h1>
             <div className='flex flex-col md:grid grid-cols-99 gap-7 '>
                 {urlCat ? urlCat.map((url, i) => (
                     <div key={i} className="" >
