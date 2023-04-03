@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import useImageCatName from '../hooks/useImageCatName'
+import ChargeCats from '../components/ChargeCats'
 const Principal = () => {
     const [number, setNumber] = useState<number>(0)
     const { urlCat, setNNames } = useImageCatName(true)
     useEffect(() => {
-        setNNames(number)
-
+        console.log(number)
+        if (number >= 1) {
+            setNNames(number)
+        }
     }, [number])
 
     return (
@@ -22,9 +25,7 @@ const Principal = () => {
                     <option>20</option>
                 </select>
             </div>
-            <div className='flex flex-col md:grid grid-cols-99 gap-7 '>
-                {urlCat ? urlCat.map((url, i) => <div key={i} className="" > <img src={url + ""} className="object-cover w-full  h-[25rem] md:min-w-[25rem]" loading="lazy" /></div>) : <p></p>}
-            </div>
+            <ChargeCats CatArray={urlCat} NumberImg={number}></ChargeCats>
         </div >
     )
 }

@@ -16,3 +16,34 @@ html {
   background-color: #242424;
 
 }
+
+@layer components
+{
+  .nav-style
+  {
+    transform: translateX(-100vw) translateY(54%);
+    position: fixed;
+    height: 100%;
+    width: 90%;
+    background: rebeccapurple;  
+    transition: all ease-in-out 0.5s;
+  }
+  .nav-style-open
+  {
+    transform: translateX(-2vw) translateY(54%);
+  }
+  @layer components {
+    .hamburger div:first-child {
+        @apply rotate-45 translate-y-1.5;
+    }
+
+    .hamburger div:last-child {
+        @apply -rotate-45 -translate-y-1;
+    }
+
+    .clip-path-cards {
+
+        clip-path: polygon(0 0, 100% 0, 100% 66%, 76% 88%, 23% 88%, 0 65%);
+
+    }}
+}
